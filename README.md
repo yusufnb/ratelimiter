@@ -1,4 +1,6 @@
-ratelimiter
+JavaScript RateLimiter.js
 ===========
 
-JavaScript RateLimiter
+Rate limits execution of a function
+
+
