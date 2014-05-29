@@ -3,12 +3,13 @@
 //     rateLimiter.js may be freely distributed under the MIT license.
 
 (function(){
+	'use strict';
 
-	function rateLimiter(func, time) {
+	function rateLimiter(func, delay) {
 
 		var state = true;
 		var queue = [];
-		var that = this;
+		var that;
 
 		function wait() {
 			state = false;
@@ -20,10 +21,11 @@
 				} else {
 					state = true;
 				}
-			}, time);
+			}, delay);
 		}
 
 		return function() {
+			that = this;
 			if (state === true) {
 				func.apply(that, arguments);
 				wait();
